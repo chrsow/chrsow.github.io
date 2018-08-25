@@ -1,0 +1,85 @@
+---
+layout: post
+published: true
+title:  Writeup I-Secure CTF 2016 รอบคัดเลือก
+date:   2016-08-03 07:25:00 +0700
+categories: story
+---
+
+วันนี้จะมาเฉลยแต่ละข้อในการแข่งขันรอบคัดเลือก CTF I-SECURE 2016 นะครับ จะพยายามเฉลยให้มากที่สุดเท่าที่ทำ+จำได้ แต่เนื่องจาก ณ เวลาที่ผมเขียนบล็อกนี้ ก็ผ่านการแข่งมาหลายวัน เซิฟเวอร์ปิดไปเรียบร้อยแล้ว ดังนั้นเฉลยส่วนมากจะเป็นเรื่อง Reverse Engineering, Cryptography, Forensics เท่าที่ผมได้ดาวน์โหลดไฟล์เก็บไว้นะครับ ส่วนหัวข้ออื่น จะพูดถึงวิธีทำอย่างเดียวครับผม
+
+<h3>Reverse Engineering 2 [10 points]</h3>
+[link download][re2] <br>
+โจทย์ให้ไฟล์ jar มา เราก็จะมา decompile กัน ผมเลือกใช้ tool ที่มีชื่อว่า jd-gui ซึ่งจะทำให้เราสามารถดู source code ของไฟล์ ".class" ได้ พอเอาไฟล์ที่โจทย์มา decompile ก็จะเจอ flag
+ <br>
+<h3>Tictactoe [10 points]</h3>
+[link download][tictactoe]<br>
+เล่นไปเรื่อยๆ เดี่ยวก็ชนะเอง ชนะแล้ว Flag จะออกมาให้เห็น
+<br>
+<h3>GGEZ [10 points]</h3>
+เป็นข้อที่ต้อง brute force เพื่อให้ได้ flag มา
+{% highlight python %}
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(('128.199.124.15',7777))
+while True:
+	a,b = s.recv(1024),s.recv(1024)
+	print a
+	print b
+	str = "!#$%&()+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghi_jklmnopqrstuv*wxyz{|}~"
+	i=0
+	try :
+	 while True:
+			s.send(str[i])
+			boo = s.recv(1024)
+			guest = s.recv(1024)
+			if 'Boo' in boo:
+				i= (i+1)%88
+			else:
+				print boo
+				print guest
+				pwd+=str[i]
+				print 'Passwod now : '+pwd
+				i=0
+	except:
+		print 'Password is '+pwd
+		exit(0)
+{% endhighlight %}
+<br>
+<h3>Look at the picture [10 points]</h3>
+[link download][look-at-the-picture]<br>
+ข้อนี้เป็นข้อแรกที่เรา submit กันครับ
+{% highlight text %}
+$strings xnyv.png
+{% endhighlight %}
+มี output ท้ายสุดเป็น
+{% highlight text %}
+secret.txtUT
+VGhlX0YxQGdfMXNfRUBzeV9NM3RoMGQ=
+secret.txtUT
+{% endhighlight %}
+พอเดาได้ว่าข้อความระหว่าง secret.txtUT น่าจะเป็น encoded flag และจากการที่มีเครื่องหมาย = ลงท้าย ทำให้พอเดาได้ว่าน่าจะเป็น base64 ก็ทำการ decode base 64 จะได้ flag ออกมา
+<br>
+<h3>Look at the shell [30 points]</h3>
+[link download][look-at-the-shell]<br>
+ข้อนี้ผมไม่มั่นใจว่าทางผู้ตั้งโจทย์ตั้งใจให้ใช้วิธีนี้รึเปล่า เพราะดูแล้ววิธีที่ได้ Flag มานั้น ง่ายกว่าข้อที่แล้วที่เป็นข้อ 10 คะแนน ! แต่คะแนนข้อนี้ 30 คะแนน !!
+
+[update] ทางผู้จัดงานแจ้งมาแล้วครับว่าข้อนี้ต้อสร้าง Ubuntu profile ขึ้นมา แล้วค่อยอ่านคำสั่งภายในจะเห็น flag ครับ
+{% highlight text %}
+$tar -zxvf memdump.tar.gz
+$strings memdump | grep Fl@g
+{% endhighlight %}
+<br>
+ยังเฉลยไม่หมดนะครับ ผมจะทยอยอัพเดทเรื่อยๆ หวังว่าเฉลยอันนี้พอจะมีประโยชน์บ้าง ส่วนโจทย์รอบชิงจะเป็นยังไง เดี๋ยวจะมาแชร์กันอีกทีครับ ใครมีความเห็นอะไร มีวิธีทำที่ต่างจากนี้ หรือวิธีของผมมีจุดบกพร่องตรงไหน คอมเมนต์กันเข้ามาได้นะครับผม
+
+<!-- FB Comment -->
+<div class="fb-comments" data-href="https://chrsow.github.io{{ page.url }}" data-colorscheme="dark" data-num-posts="4" data-width="100%"></div>
+
+
+[re1]: https://drive.google.com/open?id=0B8HwFArx04RtalVhbWt6VGN4dTQ
+[re2]: https://drive.google.com/open?id=0B8HwFArx04RtN1Z4NGM5bkxrNTg
+[tictactoe]: https://drive.google.com/open?id=0B8HwFArx04RtNGJxdDdlWU8wTjg
+[troll]: https://google.com
+[look-at-the-picture]: https://drive.google.com/open?id=0B8HwFArx04RtNkxzWjI0T3lSU28
+[look-at-the-shell]: https://drive.google.com/open?id=0B1g2rwON9qvbZVZmTzRHUWtzOUE
+[jekyll-talk]: https://talk.jekyllrb.com/

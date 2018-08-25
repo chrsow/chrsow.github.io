@@ -1,0 +1,95 @@
+---
+layout: post
+published: true
+title: Writeup RC3 CTF Forensics 400 
+date:   2016-11-21 14:50:00 +0700
+categories: story
+---
+
+<h2>CTF : RC3 CTF (https://ctf.rc3.club)</h2>
+<h2>Category: Forensics </h2>
+<h2>Score : 400 </h2>
+
+
+Actually, I'm not familar with forensics challenge, but I can't solve the other challenges and many players have solved this one, made me want to try.
+
+After download the image, mount it first, and looking around.
+{% highlight code%}
+wasin:dtrump$ mount dtrump.img /mnt/dtrump
+wasin:dtrump$ ls -a
+.             Desktop           .gitconfig     Music        Templates
+..            .dmrc             .gnupg         Pictures     Videos
+.bash_logout  Documents         .history       .profile     .viminfo
+.bashrc       Downloads         .ICEauthority  Public       .Xauthority
+.cache        examples.desktop  .local         rr_moved     .xsession-errors
+.config       .gconf            .mozilla       secretfiles
+{% endhighlight %}
+
+"secretfiles" folder are interesting, and we see the file with [gpg][gpg] encryption.
+{% highlight code%}
+
+
+wasin:secretfiles$ ls -a
+.  ..  document.txt  .git  README.md  Workbook1.xlsx.gpg
+{% endhighlight %}
+
+I think flag must be somewhere in the 'Workbook1.xlsx.gpg', the next target is to find the 'key' to decrypt it. So I find out more on another file 'document.txt','README.md','.git' , and I found a clue in '.git' folder.
+
+{% highlight code%}
+wasin:secretfiles$ cd .git/
+wasin:.git$ ls -a
+.   branches        config       HEAD   index  logs     refs
+..  COMMIT_EDITMSG  description  hooks  info   objects
+wasin:.git$ cat config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/rc3club/supersecret.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+{% endhighlight %}
+
+After followed the link 'https://github.com/rc3club/supersecret.git', Finally we found his private key in his reposity. (https://raw.githubusercontent.com/rc3club/supersecret/master/private.key)
+(in reality, it is a bad idea to keep the private key publicly).
+
+Last time I involved with gpg encrytion/decryption was in computer security class, miss it so much, and with some problem with read-only file on Ubuntu made me can't download private key. So I switched to Windows and decrypt the file.
+{% highlight code%}
+bash-3.1$ gpg --allow-secret-key-import --import private.key
+gpg: key 8FFDF6D6: secret key imported
+gpg: key 8FFDF6D6: public key "ThugG (lolz) <nope@gmail.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+gpg:       secret keys read: 1
+gpg:   secret keys imported: 1
+bash-3.1$ gpg -d Workbook1.xlsx.gpg > Workbook1.xlsx
+gpg: encrypted with 1024-bit RSA key, ID E22CB12D, created 2016-11-18
+      "ThugG (lolz) <nope@gmail.com>"
+{% endhighlight %}
+
+After opened the file. it prompt for the password, what is the password?. I take a look in 'secretfiles' folder and doubt that password must be in 'document.txt' (passowrd123) or 'README.txt'(# supersecret). Both are wrong, so I guess may be 'passowrd123' was mispelling from 'password123' and this is the right guess.
+
+![Image alt]({{ site.baseurl }}/img/posts/rc3ctf/rc3.forecnsice.400.1.PNG "rc3ctf.for.1")
+<br>
+
+![Image alt]({{ site.baseurl }}/img/posts/rc3ctf/rc3.forecnsice.400.2.PNG "rc3ctf.for.2")
+<br>
+
+I can't find the flag, so I decide to take a look at the other files and directorys and found nothing. The next day I get back to check this file again, finally it is not so complicated as much as I think. It is on the second sheet which I have alredy
+search. Because It is in white color, but you can see it on funciton tab above.
+![Image alt]({{ site.baseurl }}/img/posts/rc3ctf/rc3.forecnsice.400.3.PNG "rc3ctf.for.3")
+<br>
+
+<i>Flag : RC3-2016-SNEAKY21 </i>
+<br>
+
+<!-- FB Comment -->
+<div class="fb-comments" data-href="https://chrsow.github.io{{ page.url }}" data-colorscheme="dark" data-num-posts="4" data-width="100%"></div>
+
+[gpg]: https://www.gnupg.org/
+[WWOOF]: http://www.wwoof.net/
+[jekyll-talk]: https://talk.jekyllrb.com/
