@@ -36,6 +36,12 @@
         {% assign name_page = page.title | append: name_page %}
         {% endif %}
         {% endfor %} 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" href="/">
+                Story
+            </a>
+        </li>
         
         <!-- Auto Generation of SPECIAL pages in the navbar -->
         {% for item in site.theme_settings.special_page %}

@@ -15,13 +15,13 @@ theme_settings:
 
   # Header and footer text
   header_text: > #two or three lines to describe your site
-     <p>CHRSOW.</p>
+     <h2>CHRSOW</h2>
   header_text_feature_image: assets/img/pexels/triangular.jpeg
   footer_text: >
   #  Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
   # Icons
-  rss: false  # Make sure you created a feed.xml with feed.xml layout
+  rss: true  # Make sure you created a feed.xml with feed.xml layout
   email_address: "liang.wasin@gmail.com" # Full email address, e.g. "sam@example.com"
   behance:
   bitbucket:
@@ -60,7 +60,7 @@ theme_settings:
 
   # Scripts / Features 
   google_analytics: # Tracking ID, e.g. "UA-000000-01"
-  disqus_shortname:
+  disqus_shortname: "chrsow"
   katex: true # Enable if using math markup
   
   special_page:
