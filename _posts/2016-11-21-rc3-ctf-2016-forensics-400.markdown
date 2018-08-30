@@ -73,15 +73,15 @@ gpg: encrypted with 1024-bit RSA key, ID E22CB12D, created 2016-11-18
 
 After opened the file. it prompt for the password, what is the password?. I take a look in 'secretfiles' folder and doubt that password must be in 'document.txt' (passowrd123) or 'README.txt'(# supersecret). Both are wrong, so I guess may be 'passowrd123' was mispelling from 'password123' and this is the right guess.
 
-![Image alt]({{ site.baseurl }}/img/posts/rc3ctf/rc3.forecnsice.400.1.PNG "rc3ctf.for.1")
+![Image alt]({{ site.baseurl }}/assets/img/posts/rc3ctf/rc3.forecnsics.400.1.png "rc3ctf.for.1")
 <br>
 
-![Image alt]({{ site.baseurl }}/img/posts/rc3ctf/rc3.forecnsice.400.2.PNG "rc3ctf.for.2")
+![Image alt]({{ site.baseurl }}/assets/img/posts/rc3ctf/rc3.forecnsics.400.2.png "rc3ctf.for.2")
 <br>
 
 I can't find the flag, so I decide to take a look at the other files and directorys and found nothing. The next day I get back to check this file again, finally it is not so complicated as much as I think. It is on the second sheet which I have alredy
 search. Because It is in white color, but you can see it on funciton tab above.
-![Image alt]({{ site.baseurl }}/img/posts/rc3ctf/rc3.forecnsice.400.3.PNG "rc3ctf.for.3")
+![Image alt]({{ site.baseurl }}/assets/img/posts/rc3ctf/rc3.forecnsics.400.3.png "rc3ctf.for.3")
 <br>
 
 <i>Flag : RC3-2016-SNEAKY21 </i>

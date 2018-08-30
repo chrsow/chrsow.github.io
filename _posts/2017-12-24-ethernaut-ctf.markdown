@@ -6,7 +6,7 @@ subtitle:  "After a final exam, it's time to have some kind of relax and prepare
 date: 2017-12-22 7:00:00 +0700
 header-img: "/assets/img/posts/ethernautctf/intro.PNG"
 categories: story
-tags: []
+tags: [writeup, blockchain, ethereum]
 ---
 
 [![][img-intro]][img-intro]

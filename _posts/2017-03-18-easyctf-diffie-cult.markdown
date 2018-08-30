@@ -4,6 +4,7 @@ published: true
 title: Writeup EasyCTF Diffie-Cult 140 
 date:   2017-03-18 13:00:00 +0700
 categories: story
+tags: [writeup, crypto, diffie-hellman]
 ---
 
 <h2>CTF : EasyCTF (https://www.easyctf.com)</h2>

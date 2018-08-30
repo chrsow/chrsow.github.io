@@ -6,7 +6,7 @@ subtitle:  ""
 date: 2018-3-26 18:00:00 +0700
 header-img: "/assets/img/posts/securinetsctf18/securinetsctf18-intro.png"
 categories: story
-tags: []
+tags: [writeup, crypto]
 ---
 
 I've been looking for crypto challenges lately. In this CTF challenge, there are three crypto challenges (with some steganography for the last one).
