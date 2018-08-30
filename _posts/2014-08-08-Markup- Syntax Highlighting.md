@@ -1,5 +1,6 @@
 ---
 layout: post
+published: no
 title: "Markup: Syntax Highlighting"
 tags: [code]
 ---

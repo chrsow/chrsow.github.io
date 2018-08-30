@@ -87,9 +87,7 @@ search. Because It is in white color, but you can see it on funciton tab above.
 <i>Flag : RC3-2016-SNEAKY21 </i>
 <br>
 
-<!-- FB Comment -->
-<div class="fb-comments" data-href="https://chrsow.github.io{{ page.url }}" data-colorscheme="dark" data-num-posts="4" data-width="100%"></div>
+<!-- FB Comment
+<div class="fb-comments" data-href="https://chrsow.github.io{{ page.url }}" data-colorscheme="dark" data-num-posts="4" data-width="100%"></div> -->
 
 [gpg]: https://www.gnupg.org/
-[WWOOF]: http://www.wwoof.net/
-[jekyll-talk]: https://talk.jekyllrb.com/

@@ -1,5 +1,6 @@
 ---
 layout: post
+published: no
 title: Sample post
 tags: [A Tag, Test, Lorem, Ipsum]
 excerpt_separator: <!--more-->
