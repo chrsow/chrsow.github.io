@@ -241,9 +241,7 @@ What we gonna do
 1. Perform MITM attack, tell Bob new Alice's public key (which exactly is our public key) and let him encrypt the flag and send to Alice.
 2. Ask Alice for encrypted flag. Use the shared key to decrypt it with AES ECB.
 
-From the ECDH protocol, the shared key can be computed with 
-
-$$d_{Alice} * d_{Bob} * G$$
+From the ECDH protocol, the shared key can be computed with $$d_{Alice} * d_{Bob} * G$$
 
 Where $$d_{Alice}$$ is Alice's private key, $$d_{Bob}$$ is Bob's private key and $$G$$ is the generetor point on the curve. (in this case, `secp128r1`)
 
@@ -255,14 +253,13 @@ So our key pair is $$(1, G)$$, while Alice is $$(d_{Alice}, Q_{Alice})$$ and Bob
 
 New shared key after communicated with Bob will becomes
 
-<p>
 $$
 d_{Attacker} * d_{Bob} * G\\
 &= 1 * d_{Bob} * G\\
 &= d_{Bob} * G\\
 &= Q_{Bob}
 $$
-</p>
+
 Here is the point, our new shared key is just Bob's public key ($$Q_{Bob}$$) and we can easily get the flag by tell Bob to send the flag to Alice, ask Alice for the encrypted flag, then use Bob's public key to decrypt the encrypted flag with `AES` block cipher in `ECB` mode.
 
 ``` python
