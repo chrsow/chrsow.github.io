@@ -8,8 +8,8 @@ feature-img: "assets/img/pexels/computer.jpeg"
 
 ### Researchs
 - Jenkins
-    - CVE-2019-10476 [[ref]](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10476)
-    - CVE-2019-10459 [[ref]](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10459)
+    - CVE-2019-10476 [[ref]](https://nvd.nist.gov/vuln/detail/CVE-2019-10476)
+    - CVE-2019-10459 [[ref]](https://nvd.nist.gov/vuln/detail/CVE-2019-10459)
 
 and many more coming soon
 
