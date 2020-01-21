@@ -5,7 +5,7 @@ title: "RCTF 2018 Crypto Writeup"
 subtitle:  ""
 date: 2018-5-21 10:00:00 +0700
 header-img: "/assets/img/posts/rctf18/rctf18-intro.png"
-# categories: story
+categories: story
 tags: [writeup, crypto]
 ---
 

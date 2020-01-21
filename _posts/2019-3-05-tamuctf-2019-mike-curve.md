@@ -5,7 +5,7 @@ title: "Mike's Marvelous Mystery Curves - TAMUCTF 2019 Writeup"
 subtitle:  ""
 date: 2019-3-05 10:00:00 +0800
 header-img: "/assets/img/posts/tamuctf19/tamuctf19-intro.png"
-# categories: story
+categories: story
 tags: [writeup, crypto]
 ---
 
