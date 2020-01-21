@@ -242,7 +242,9 @@ What we gonna do
 2. Ask Alice for encrypted flag. Use the shared key to decrypt it with AES ECB.
 
 From the ECDH protocol, the shared key can be computed with 
-<p>$$d_{Alice} * d_{Bob} * G$$</p>
+
+$$d_{Alice} * d_{Bob} * G$$
+
 Where $$d_{Alice}$$ is Alice's private key, $$d_{Bob}$$ is Bob's private key and $$G$$ is the generetor point on the curve. (in this case, `secp128r1`)
 
 Let's begin the attack. We will tell Bob new Alice's public key (yeah, we will tell him our public key instead). For easy computation, I choose the generator point ($$G$$) as my public key. 
