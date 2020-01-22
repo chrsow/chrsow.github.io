@@ -253,7 +253,7 @@ So our key pair is $$(1, G)$$, while Alice is $$(d_{Alice}, Q_{Alice})$$ and Bob
 
 New shared key after communicated with Bob will becomes
 
-<center>$$d_{Attacker} * d_{Bob} * G$$</center>
+<p style="text-align: center;"> $$d_{Attacker} * d_{Bob} * G$$ </p>
 
 $$= 1 * d_{Bob} * G$$
 
