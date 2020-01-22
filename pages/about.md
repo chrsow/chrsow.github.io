@@ -7,4 +7,4 @@ feature-img: "assets/img/pexels/circuit.jpeg"
 
 My name is Wasin Sae-ngow :)
 
-AKA chrsow
+AKA chrsow, Leon Liang
