@@ -253,13 +253,17 @@ So our key pair is $$(1, G)$$, while Alice is $$(d_{Alice}, Q_{Alice})$$ and Bob
 
 New shared key after communicated with Bob will becomes
 
-<p style="text-align: center;"> $$d_{Attacker} * d_{Bob} * G$$ </p>
+<div align="center"> 
+
+$$d_{Attacker} * d_{Bob} * G$$ 
 
 $$= 1 * d_{Bob} * G$$
 
 $$= d_{Bob} * G$$
 
 $$= Q_{Bob}$$
+
+</div>
 
 Here is the point, our new shared key is just Bob's public key ($$Q_{Bob}$$) and we can easily get the flag by tell Bob to send the flag to Alice, ask Alice for the encrypted flag, then use Bob's public key to decrypt the encrypted flag with `AES` block cipher in `ECB` mode.
 
