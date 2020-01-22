@@ -79,8 +79,8 @@ After opened the file. it prompt for the password, what is the password?. I take
 ![Image alt]({{ site.baseurl }}/assets/img/posts/rc3ctf/rc3.forecnsics.400.2.png "rc3ctf.for.2")
 <br>
 
-I can't find the flag, so I decide to take a look at the other files and directorys and found nothing. The next day I get back to check this file again, finally it is not so complicated as much as I think. It is on the second sheet which I have alredy
-search. Because It is in white color, but you can see it on funciton tab above.
+I can't find the flag, so I decide to take a look at the other files and directorys and found nothing. The next day I get back to check this file again, finally it is not so complicated as much as I think. It is on the second sheet which I have already
+searched. Because It is in white color, but you can see it on function tab above.
 ![Image alt]({{ site.baseurl }}/assets/img/posts/rc3ctf/rc3.forecnsics.400.3.png "rc3ctf.for.3")
 <br>
 
