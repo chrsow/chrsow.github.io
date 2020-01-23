@@ -9,7 +9,8 @@ description: "CHRSOW | STORY" # used by search engines
 theme_settings:
   # Meta
   title: CHRSOW # blog's title
-  avatar: assets/img/triangle.svg
+  # avatar: assets/img/triangle.svg
+  avatar: assets/img/lion.svg
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
 
